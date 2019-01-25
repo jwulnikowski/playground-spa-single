@@ -1,0 +1,10 @@
+{
+  "sofe": {
+    "manifest": {
+      "navbar": "./assets/navbar/navbar.js",
+      "people": "./assets/people/people.js",
+      "planets": "./assets/planets/planets.js",
+      "utils": "./assets/utils/utils.js"
+    }
+  }
+}
