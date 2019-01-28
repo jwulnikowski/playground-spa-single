@@ -6,5 +6,13 @@ export const links = [
   {
     name: 'Planets',
     href: '/planets'
+  },
+  {
+    name: 'Legacy Player',
+    href: '/legacy/players/23106/summary'
+  },
+  {
+    name: 'Legacy withdrawals',
+    href: '/legacy/withdrawals'
   }
 ]

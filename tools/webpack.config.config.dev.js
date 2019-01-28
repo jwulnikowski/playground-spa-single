@@ -30,6 +30,10 @@ config.devServer = {
     "/assets/utils/": {
       target: "http://localhost:8238",
       pathRewrite: { "^/": "" }
+    },
+    "/assets/legacy/": {
+      target: "http://localhost:8239",
+      pathRewrite: { "^/": "" }
     }
   }
 }

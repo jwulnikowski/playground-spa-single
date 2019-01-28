@@ -14,3 +14,6 @@
 .primary-navigation-link:first-child {
   margin-left: 32px;
 }
+.navBarHeight{
+  overflow: hidden;
+}

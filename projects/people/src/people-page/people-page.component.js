@@ -70,6 +70,7 @@ export default class PeoplePage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps, prevState);
     if (this.props.location.search !== prevProps.location.search) {
       this.selectPersonFromQueryParams()
     }
@@ -79,7 +80,7 @@ export default class PeoplePage extends React.Component {
     const search = this.props.location.search
     const parsed = queryString.parse(search)
     if (
-      (this.state.selectedPerson === undefined && parsed.selected !== undefined) || 
+      (this.state.selectedPerson === undefined && parsed.selected !== undefined) ||
       (this.state.selectedPerson && parsed && parsed.selected !== this.state.selectedPerson.id)
     ) {
       this.setState(prev => {

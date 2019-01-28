@@ -19,3 +19,8 @@ export function planets(location) {
   console.log(prefix(location, 'planets'));
   return prefix(location, 'planets')
 }
+
+export function legacy(location) {
+  console.log(prefix(location, 'legacy'));
+  return prefix(location, 'legacy')
+}

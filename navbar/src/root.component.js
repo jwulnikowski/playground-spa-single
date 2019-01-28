@@ -2,9 +2,10 @@ import React from 'react'
 import { Scoped } from 'kremling'
 import styles from './root.krem.css'
 import { links } from './root.helper.js'
-import { Link } from '@reach/router'
+import { navigateToUrl} from 'single-spa';
 
-export default class Root extends React.Component {
+
+class Root extends React.Component {
 
   state = {
     hasError: false
@@ -28,13 +29,14 @@ export default class Root extends React.Component {
               {
                 links.map((link) => {
                   return (
-                    <Link
+                    <a
                       key={link.href}
                       className='primary-navigation-link'
-                      to={link.href}
+                      onClick={navigateToUrl}
+                      href={link.href}
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   )
                 })
               }
@@ -45,3 +47,5 @@ export default class Root extends React.Component {
     )
   }
 }
+
+export default Root
