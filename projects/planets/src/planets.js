@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import singleSpaVue from 'single-spa-vue'
 import configuredRouter from './router.js'
+import { VuePlugin } from 'vuera'
 
 Vue.use(VueRouter)
+Vue.use(VuePlugin)
 
 const vueLifecycles = singleSpaVue({
   Vue,

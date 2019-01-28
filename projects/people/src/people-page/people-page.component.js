@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import AsyncDecorator from 'async-decorator/rx6'
 import { Scoped } from 'kremling'
 import queryString from 'query-string'
@@ -7,6 +7,9 @@ import { getPeople } from '../utils/api.js'
 import styles from './people-page.krem.css'
 import PeopleList from '../people-list/people-list.component.js'
 import SelectedPerson from './selected-person/selected-person.component.js'
+
+import { Forms } from 'styleguide!sofe'
+
 
 @AsyncDecorator
 export default class PeoplePage extends React.Component {
@@ -24,8 +27,8 @@ export default class PeoplePage extends React.Component {
     this.selectPersonFromQueryParams()
   }
 
-  render () {
-    const { nextPage, loadingPeople, people, selectedPerson} = this.state
+  render() {
+    const { nextPage, loadingPeople, people, selectedPerson } = this.state
     return (
       <Scoped postcss={styles}>
         <div className='peoplePage'>
@@ -33,13 +36,13 @@ export default class PeoplePage extends React.Component {
             <div className='listWrapper'>
               {
                 nextPage ? (
-                  <button
+                  <Forms.Button
                     className='brand-button margin-bottom-16'
                     onClick={this.fetchMore}
                     disabled={!this.state.nextPage || this.state.loadingPeople}
                   >
                     Fetch More people
-                  </button>
+                  </Forms.Button>
                 ) : null
               }
               {
@@ -48,12 +51,12 @@ export default class PeoplePage extends React.Component {
                     Loading ...
                   </div>
                 ) : (
-                  <PeopleList
-                    people={people}
-                    loadingPeople={loadingPeople}
-                    selectPerson={this.selectPerson}
-                  />
-                )
+                    <PeopleList
+                      people={people}
+                      loadingPeople={loadingPeople}
+                      selectPerson={this.selectPerson}
+                    />
+                  )
               }
             </div>
             <div className='selectedWrapper'>
@@ -86,7 +89,7 @@ export default class PeoplePage extends React.Component {
       this.setState(prev => {
         const found = find(prev.people, (person) => person.id === parsed.selected)
         if (found !== undefined) {
-          return {selectedPerson: found}
+          return { selectedPerson: found }
         } else {
           return null
         }
@@ -120,14 +123,14 @@ export default class PeoplePage extends React.Component {
 
   fetchPeople = (pageNum = 1) => {
     if (this.state.nextPage) {
-      this.setState({loadingPeople: true}, () => {
+      this.setState({ loadingPeople: true }, () => {
         this.props.cancelWhenUnmounted(
           getPeople(pageNum).subscribe(
             (results) => {
               this.setState(prev => {
                 const people = [...prev.people, ...results.results]
                 const nextPage = !!results.next
-                return {people, nextPage, loadingPeople: false}
+                return { people, nextPage, loadingPeople: false }
               }, this.selectPersonFromQueryParams)
             },
             (err => {

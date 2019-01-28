@@ -18,7 +18,6 @@ class Root extends React.Component {
   }
 
   render() {
-    console.log('aaaaa', this.props)
     return (
       this.state.hasError ? (
         <div>

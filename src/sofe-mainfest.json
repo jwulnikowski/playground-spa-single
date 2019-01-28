@@ -5,7 +5,8 @@
       "people": "/assets/people/people.js",
       "planets": "/assets/planets/planets.js",
       "utils": "/assets/utils/utils.js",
-      "legacy": "/assets/legacy/legacy.js"
+      "legacy": "/assets/legacy/legacy.js",
+      "styleguide": "/assets/styleguide/styleguide.js"
     }
   }
 }

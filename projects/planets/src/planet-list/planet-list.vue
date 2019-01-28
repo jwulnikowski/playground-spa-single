@@ -1,12 +1,11 @@
 <template>
   <div class="planetList">
-    <button
-      @click='handleButtonClick'
+    <Button
+      @onClick='handleButtonClick'
       :disabled='loading || !nextPage'
-      class='brand-button margin-bottom-16'
     >
       Fetch More planets
-    </button>
+    </Button>
     <div v-for='planet in planets'>
       <planet
         v-bind:planet='planet'
@@ -21,6 +20,8 @@
 
 <script>
 import Planet from './planet.vue'
+import { Forms } from 'styleguide!sofe'
+
 export default {
   props: {
     loading: Boolean,
@@ -28,7 +29,8 @@ export default {
     planets: Array,
   },
   components: {
-    Planet
+    Planet,
+    Button: Forms.Button
   },
   methods: {
     handleButtonClick: function () {

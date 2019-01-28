@@ -34,6 +34,10 @@ config.devServer = {
     "/assets/legacy/": {
       target: "http://localhost:8239",
       pathRewrite: { "^/": "" }
+    },
+    "/assets/styleguide/": {
+      target: "http://localhost:8240",
+      pathRewrite: { "^/": "" }
     }
   }
 }

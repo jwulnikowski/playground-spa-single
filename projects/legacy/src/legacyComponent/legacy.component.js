@@ -19,18 +19,19 @@ class Legacy extends React.Component {
     console.log(this.iframe.current.contentWindow.location.href)
   }
 
-  componentDidMount(){
-    window.addEventListener('single-spa:routing-event', () => {
-      this.setState({
-        url: URL + location.pathname.replace("/legacy/", "")
-      })
+  changeUrl(){
+    this.setState({
+      url: URL + location.pathname.replace("/legacy/", "")
     })
+  }
+  componentDidMount(){
+    window.addEventListener('single-spa:routing-event', this.changeUrl.bind(this))
     this.iframe.current.addEventListener('load', this.onLoad.bind(this));
   }
 
   componentWillUnmount(){
-    window.removeEventListener('single-spa:routing-event');
-    this.iframe.current.removeEventListener('load');
+    window.removeEventListener('single-spa:routing-event', this.changeUrl.bind(this));
+    this.iframe.current.removeEventListener('load', this.onLoad.bind(this));
   }
 
   render() {
