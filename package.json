@@ -23,7 +23,8 @@
     "start:utils": "cd ./projects/utils/ && webpack-dev-server --config ./webpack.dev.js --port 8238",
     "start:legacy": "cd ./projects/legacy/ && webpack-dev-server --config ./webpack.dev.js --port 8239",
     "start:styleguide": "cd ./projects/styleguide/ && webpack-dev-server --config ./webpack.dev.js --port 8240",
-    "build": "npm run build:config && npm run build:common-deps && npm run build:navbar && npm run build:utils",
+    "storybook": "cd ./projects/styleguide/ && ./node_modules/.bin/start-storybook -p 9001 -c .storybook",
+    "build": "npm run build:config && npm run build:common-deps && npm run build:navbar && npm run build:utils && npm run build:styleguide",
     "build:config": "webpack --config ./tools/webpack.config.config.js -p",
     "build:common-deps": "webpack --config ./tools/webpack.common-deps.config.js -p",
     "build:navbar": "cd ./navbar/ && webpack --config ./webpack.config.js -p",
@@ -32,7 +33,7 @@
     "build:utils": "cd ./projects/utils/ && webpack --config ./webpack.config.js -p",
     "build:styleguide": "cd ./projects/styleguide/ && webpack --config ./webpack.config.js -p",
     "build:legacy": "cd ./projects/legacy/ && webpack --config ./webpack.config.js -p",
-    "build:all": "npm run build && npm run build:people && npm run build:planets && npm run build:postbuild",
+    "build:all": "npm run build && npm run build:people && npm run build:planets  && npm run build:legacy && npm run build:postbuild",
     "build:postbuild": "node ./tools/postbuild.js",
     "postinstall": "node postinstall.js"
   },

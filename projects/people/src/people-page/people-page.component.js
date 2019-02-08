@@ -33,6 +33,7 @@ export default class PeoplePage extends React.Component {
       <Scoped postcss={styles}>
         <div className='peoplePage'>
           <div className='peoplePageContents'>
+          React
             <div className='listWrapper'>
               {
                 nextPage ? (
