@@ -11,6 +11,9 @@ storiesOf('Button', module)
   .add('with some emoji', () => (
     <Button><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
   ))
+  .add('with some black versiomn', () => (
+    <Button color="black"><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
+  ))
   .add('with some emoji', () => (
     <Button className="btn-primary"><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
   ));
